@@ -19,13 +19,8 @@ class DatabaseSeeder extends Seeder
     {
        \App\Models\User::factory(3)->create();
        $this->call(CasaSeeder::class);
-       $usuario = User::create([
-        'name' => 'haoxiang',
-        'email' => 'haoxiang@hotmail.com',
-        'email_verified_at' => now(),
-        'password' => Hash::make('haoxiang')
-    ]);
-    
+       $this->call(UserSeeder::class);
+      
     }
    
 }

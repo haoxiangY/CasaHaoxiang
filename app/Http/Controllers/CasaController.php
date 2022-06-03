@@ -62,10 +62,13 @@ class CasaController extends Controller
        $this->validate($request, [
             "nombre" => "required|max:140|unique:casas",
             "description" => "nullable|string|min:10",
+            "precio" => "nullable|min:1",
+            "espacio" => "nullable|min:1",
+
 
         ]);
        
-       Casa::create($request->only("nombre","description"));
+       Casa::create($request->only("nombre","description","precio","espacio"));
          return redirect(route("casas.index"))
             ->with("success", __("Casa creado!"));
     }

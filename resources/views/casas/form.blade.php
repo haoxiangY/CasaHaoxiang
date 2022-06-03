@@ -4,7 +4,7 @@
     </div>
 </div>-->
 
-<form class="w-full max-w-lg border-4" method="POST" action="{{ $route }}">
+<form class="w-full max-w-lg border-4" method="POST" action="{{ $route }}"  >
     @csrf
     @isset($update)
         @method("PUT")
@@ -28,10 +28,27 @@
     <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full px-5">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold my-5" for="description">
+                {{ __("Descripción") }}
+            </label>
+            <textarea name="description" class="no-resize appearance-none block w-full bg-gray-300 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" id="description">{{ old("description") ?? $casa->description }}</textarea>
+            <p class="text-gray-600 text-xs italic -my-3">{{ __("¿De qué trata tu casa?") }}</p>
+            @error("description")
+            <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+    </div>
+    <div class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full px-5">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold -my-1 mb-3" for="espacio">
                 {{ __("Precio") }}
             </label>
-            <textarea name="precio" class="no-resize appearance-none block w-full bg-gray-300 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" id="precio">{{ old("precio") ?? $casa->precio }}</textarea>
-            <p class="text-gray-600 text-xs italic -my-3">{{ __("¿El precio de la casa?") }}</p>
+            <input name="precio" value="{{ old('precio') ?? $casa->precio}}" class="appearance-none block w-full 
+            bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none 
+            focus:bg-white focus:border-gray-500" id="precio" type="number"> 
+            <p class="text-gray-600 text-xs italic -my-3">{{ __("¿EL precio de la casa?") }}</p>
+            
             @error("precio")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
                 {{ $message }}
@@ -56,8 +73,6 @@
             @enderror
         </div>
     </div>
-     
-
     
 
     <div class="md:flex md:items-center">

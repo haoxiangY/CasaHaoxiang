@@ -19,13 +19,13 @@ class CasaSeeder extends Seeder
             'user_id'=>\App\Models\User::all()->random()->id,
             'precio' => '200 000',
             'espacio' => '200m2',
-            'imagen' => '1',
+            'imagen' => 'img/casaplaya1.jpg',
             'description'=>"Casa con vistas al mar"
         ]);
 
         $Casa = Casa::create([
             'nombre' => 'Casa de la playa 2',
-            'user_id'=>\App\Models\User::all()->random()->id,
+            'user_id'=>\App\Models\User::all()->where('name','<>','admin')->random()->id,
             'precio' => '300 000',
             'espacio' => '400m2',
             'imagen' => '2',
