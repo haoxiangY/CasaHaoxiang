@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Response;
 
+use Illuminate\Support\Facades\Storage;
 
 
 class CasaController extends Controller
@@ -26,12 +27,11 @@ class CasaController extends Controller
     public function index()
     {
         $user=Auth::user();
-        
-        if($user->can('admin')){
-            $casas = Casa::with('user')->paginate(10);
+       if($user->name=='haoxiang'){
+        $casas = Casa::with("user")->paginate(10);
         }else {
         $casas = $user->casa()->paginate(10);
-        }
+     }
         return view("casas.index", compact("casas"));
     }
 
@@ -64,13 +64,22 @@ class CasaController extends Controller
             "description" => "nullable|string|min:10",
             "precio" => "nullable|min:1",
             "espacio" => "nullable|min:1",
-
-
+            "imagen"=>"required|image|mimes:jpg,jpeg,png.gif.svg|max:2048"
         ]);
-       
-       Casa::create($request->only("nombre","description","precio","espacio"));
-         return redirect(route("casas.index"))
-            ->with("success", __("Casa creado!"));
+       $imagen=$request->file('imagen')->store('public/img');
+       $url=Storage::url($imagen);
+       Casa::create(
+        array_merge(
+            $request->only("nombre", "description","precio","espacio"),
+            [
+                "imagen" => $url,
+                "user_id" => Auth::user()->id
+            ]
+        )
+    );
+
+    return redirect(route("casas.index"))
+        ->with("success", __("Casa creado!"));
     }
 
     /**

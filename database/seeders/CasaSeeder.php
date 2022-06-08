@@ -28,7 +28,7 @@ class CasaSeeder extends Seeder
             'user_id'=>\App\Models\User::all()->where('name','<>','admin')->random()->id,
             'precio' => '300 000',
             'espacio' => '400m2',
-            'imagen' => '2',
+            'imagen' => 'img/casaplaya2.jpg',
             'description'=>"Casa con piscina"
         ]);
         $Casa = Casa::create([
@@ -36,7 +36,7 @@ class CasaSeeder extends Seeder
             'user_id'=>\App\Models\User::all()->random()->id,
             'precio' => '100 000',
             'espacio' => '100m2',
-            'imagen' => '1',
+            'imagen' => 'img/casacampo.jpg',
             'description'=>"Casa en el campo"
         ]);
 
@@ -45,7 +45,7 @@ class CasaSeeder extends Seeder
             'user_id'=>\App\Models\User::all()->random()->id,
             'precio' => '140 000',
             'espacio' => '80m2',
-            'imagen' => '1',
+            'imagen' => 'img/pisooviedo.jpg',
             'description'=>"Casa ubicado en Oviedo"
         ]);
         $Casa = Casa::create([
@@ -53,7 +53,7 @@ class CasaSeeder extends Seeder
             'user_id'=>\App\Models\User::all()->random()->id,
             'precio' => '150 000',
             'espacio' => '100m2',
-            'imagen' => '1',
+            'imagen' => 'img/pisogijon.jpg',
             'description'=>"Casa ubicado en Gijon"
         ]);
         $Casa = Casa::create([
@@ -61,7 +61,7 @@ class CasaSeeder extends Seeder
             'user_id'=>\App\Models\User::all()->random()->id,
             'precio' => '200 000',
             'espacio' => '120m2',
-            'imagen' => '1',
+            'imagen' => 'img/pisogijonmar.jpg',
             'description'=>"Con buenas vistas"
         ]);
         
