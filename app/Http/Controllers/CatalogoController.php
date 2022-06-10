@@ -21,9 +21,9 @@ class CatalogoController extends Controller
     {
         $user=Auth::user();
        if($user->name=='haoxiang'){
-        $casas = Casa::with("user")->paginate(10);
+        $casas = Casa::with("user")->paginate(9);
         }else {
-        $casas = $user->casa()->paginate(10);
+        $casas = $user->casa()->paginate(9);
      }
         return view("catalogo.index", compact("casas"));
     }

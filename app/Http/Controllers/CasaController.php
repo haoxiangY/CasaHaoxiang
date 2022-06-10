@@ -62,8 +62,8 @@ class CasaController extends Controller
        $this->validate($request, [
             "nombre" => "required|max:140|unique:casas",
             "description" => "nullable|string|min:10",
-            "precio" => "nullable|min:1",
-            "espacio" => "nullable|min:1",
+            "precio" => "nullable|min:1|numeric",
+            "espacio" => "nullable|min:1|numeric",
             "imagen"=>"required|image|mimes:jpg,jpeg,png.gif.svg|max:2048"
         ]);
        $imagen=$request->file('imagen')->store('public/img');
@@ -120,8 +120,8 @@ class CasaController extends Controller
         $this->validate($request, [
             "nombre" => "required|unique:casas,nombre," . $casa->id,
             "description" => "nullable|string|min:10",
-            "precio" => "nullable|min:1",
-            "espacio" => "nullable|min:1",
+            "precio" => "nullable|min:1|numeric",
+            "espacio" => "nullable|min:1|numeric",
             "imagen"=>"required|image|mimes:jpg,jpeg,png.gif.svg|max:2048"
         ]);
         $imagen=$request->file('imagen')->store('public/img');

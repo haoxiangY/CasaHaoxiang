@@ -29,8 +29,8 @@
                     <td class="border px-4 py-2">{{ $casa->user->name }}</td>
                     <td class="border px-4 py-2">{{ $casa->precio }}</td>
                     <td class="border px-4 py-2">{{ $casa->espacio }}</td>
-                    <td class="border px-4 py-2 img-fluid">
-                       <img src="{{ $casa->imagen }}" width="20%"> </td>
+                    <td class="border px-4 py-2" width="10%">
+                       <img src="{{ $casa->imagen }}"> </td>
                     <td class="border px-4 py-2">{{ $casa->description }}</td>
                     <td class="border px-4 py-2">{{ date_format($casa->created_at, "d/m/Y") }}</td>
                     <td class="border px-4 py-2">
