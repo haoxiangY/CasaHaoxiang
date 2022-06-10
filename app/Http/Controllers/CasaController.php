@@ -46,7 +46,7 @@ class CasaController extends Controller
         $title = __("Crear casa");
         $textButton = __("Crear");
         $route = route("casas.store");
-        //dd($route);
+        
         return view("casas.create", compact("title", "textButton", "route", "casa"));
     }
 
@@ -119,10 +119,27 @@ class CasaController extends Controller
     {
         $this->validate($request, [
             "nombre" => "required|unique:casas,nombre," . $casa->id,
-            "description" => "nullable|string|min:10"
+            "description" => "nullable|string|min:10",
+            "precio" => "nullable|min:1",
+            "espacio" => "nullable|min:1",
+            "imagen"=>"required|image|mimes:jpg,jpeg,png.gif.svg|max:2048"
         ]);
-        $casa->fill($request->only("nombre","user_id","precio","espacio","description", "imagen"))->save();
-        return back()->with("success", __("Casa actualizado!"));
+        $imagen=$request->file('imagen')->store('public/img');
+        $url=Storage::url($imagen);
+        $casa->fill(
+            array_merge(
+                $request->only("nombre", "description","precio","espacio"),
+                [
+                    "imagen" => $url,
+                    "user_id" => Auth::user()->id
+                ]
+            )
+        )->save();
+    
+        return redirect(route("casas.index"))
+            ->with("success", __("Casa actualizada!"));
+       
+      
     }
 
     /**

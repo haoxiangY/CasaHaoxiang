@@ -13,18 +13,18 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="bg-gray-100 h-screen antialiased leading-none font-sans" style="background: url('img/fondo.png') no-repeat center center fixed; background-size: cover;">
+<body class="bg-gray-100 h-screen antialiased leading-none font-sans" style="background: url('img/fondo.jpg') no-repeat center center fixed; background-size: cover;">
 
 
 <div class="flex flex-col">
     @if(Route::has('login'))
         <div class="absolute top-0 right-0 mt-4 mr-4 space-x-4 sm:mt-6 sm:mr-6 sm:space-x-6">
             @auth
-                <a href="{{ url('/home') }}" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Home') }}</a>
+                <a href="{{ url('/home') }}" class="no-underline hover:underline text-sm bg-black font-normal text-gray-50 uppercase">{{ __('Home') }}</a>
             @else
-                <a href="{{ route('login') }}" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Login') }}</a>
+                <a href="{{ route('login') }}" class="no-underline hover:underline text-sm  bg-black font-normal text-gray-50 uppercase">{{ __('Login') }}</a>
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Register') }}</a>
+                    <a href="{{ route('register') }}" class="no-underline hover:underline text-sm  bg-black font-normal text-gray-50 uppercase">{{ __('Register') }}</a>
                 @endif
             @endauth
         </div>

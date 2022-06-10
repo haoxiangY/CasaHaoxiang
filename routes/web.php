@@ -1,5 +1,7 @@
 <?php
 use App\Http\Controllers\CasaController;
+use App\Http\Controllers\CatalogoController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +27,4 @@ Auth::routes();
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::resource("catalogo", CatalogoController::class);

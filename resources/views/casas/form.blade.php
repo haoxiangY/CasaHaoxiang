@@ -24,6 +24,7 @@
             @enderror
         </div>
     </div>
+    
     <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full px-5">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold -my-1 mb-3" for="espacio">
@@ -31,7 +32,7 @@
             </label>
             <input name="precio" value="{{ old('precio') ?? $casa->precio}}" class="appearance-none block w-full 
             bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none 
-            focus:bg-white focus:border-gray-500" id="precio" type="number"> 
+            focus:bg-white focus:border-gray-500" id="precio" type="text"> 
             <p class="text-gray-600 text-xs italic -my-3">{{ __("¿EL precio de la casa?") }}</p>
             
             @error("precio")
@@ -48,7 +49,7 @@
             </label>
             <input name="espacio" value="{{ old('espacio') ?? $casa->espacio}}" class="appearance-none block w-full 
             bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none 
-            focus:bg-white focus:border-gray-500" id="espacio" type="number"> 
+            focus:bg-white focus:border-gray-500" id="espacio" type="text"> 
             <p class="text-gray-600 text-xs italic -my-3">{{ __("¿Los m2 que tiene la casa?") }}</p>
             
             @error("espacio")

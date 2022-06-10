@@ -28,6 +28,11 @@
                             {{ __('Casas') }}
                         </a>
                     @endauth
+                    @auth
+                        <a href="{{ route('catalogo.index') }}" class="text-lg font-semibold text-gray-100 no-underline">
+                            {{ __('Catalogo') }}
+                        </a>
+                    @endauth
                 </div>
                 <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
                     @guest
