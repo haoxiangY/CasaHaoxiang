@@ -20,11 +20,11 @@
     @if(Route::has('login'))
         <div class="absolute top-0 right-0 mt-4 mr-4 space-x-4 sm:mt-6 sm:mr-6 sm:space-x-6">
             @auth
-                <a href="{{ url('/home') }}" class="no-underline hover:underline text-sm bg-black font-normal text-gray-50 uppercase">{{ __('Home') }}</a>
+                <a href="{{ url('/home') }}" class="no-underline hover:underline text-sm bg-black font-normal text-gray-50 uppercase">{{ __('Pagina principal') }}</a>
             @else
-                <a href="{{ route('login') }}" class="no-underline hover:underline text-sm  bg-black font-normal text-gray-50 uppercase">{{ __('Login') }}</a>
+                <a href="{{ route('login') }}" class="no-underline hover:underline text-sm  bg-black font-normal text-gray-50 uppercase">{{ __('Iniciar sesión') }}</a>
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="no-underline hover:underline text-sm  bg-black font-normal text-gray-50 uppercase">{{ __('Register') }}</a>
+                    <a href="{{ route('register') }}" class="no-underline hover:underline text-sm  bg-black font-normal text-gray-50 uppercase">{{ __('Crear cuenta') }}</a>
                 @endif
             @endauth
         </div>
